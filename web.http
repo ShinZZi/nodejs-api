@@ -1,0 +1,34 @@
+@baseURI = http://localhost:3131/api
+
+# Posts
+
+# @name getProducts
+GET {{baseURI}}/products
+
+###
+
+# @name addNewProduct
+POST {{baseURI}}/products
+Content-Type: application/json
+
+{
+  "name": "X-Bike Christmas 2018",
+  "price": 150.9,
+  "rating": 5
+}
+
+
+###
+
+# @name updateProduct
+PUT {{baseURI}}/products/2
+Content-Type: application/json
+
+{
+  "price": 10.5
+}
+
+###
+
+# @name removeProduct
+DELETE  {{baseURI}}/products/616d88b3f7c97a3fc584c224
