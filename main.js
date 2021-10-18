@@ -15,6 +15,8 @@ mongoose
   .catch((err) => {
     console.log(Error, "DB Connect Failure");
   });
+
+//Middleware to accept CORS
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -23,13 +25,17 @@ app.use(function (req, res, next) {
   );
   next();
 });
+
+//Middleware for POST and PUT
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const Products = require("./api/models/productModel"); //Loading Model
-const routes = require("./api/routes/productRoute"); //Loading Routes
+//Loading Model
+const Products = require("./api/models/productModel");
+//Loading Product Routes
+const ProductRoutes = require("./api/routes/productRoute");
 
-routes(app);
+ProductRoutes(app);
 app.get("*", (req, res) => {
   res.status("404").send({ url: req.originalUrl + "not found" });
 });
