@@ -1,8 +1,6 @@
 module.exports = (app) => {
   const productList = require("../controllers/productController");
 
-  app.route("/").get(productList.list_all_products);
-
   app
     .route("/api/products")
     .get(productList.list_all_products)
