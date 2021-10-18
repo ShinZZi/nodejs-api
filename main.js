@@ -1,13 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-
+const MONGO_URI =
+  "mongodb+srv://long123:l123@cluster0.1vjdg.mongodb.net/demo?retryWrites=true&w=majority";
 const app = express();
 
 const PORT = process.env.PORT || 3131;
 
 mongoose
-  .connect(process.env.MONGO_SERVER)
+  .connect(MONGO_URI)
   .then((res) => {
     console.log("DB Connected");
   })
