@@ -1,8 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const MONGO_URI =
-  "mongodb+srv://long123:l123@cluster0.1vjdg.mongodb.net/demo?retryWrites=true&w=majority";
+const MONGO_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.1vjdg.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const app = express();
 const swagger = require("./swagger");
 const PORT = process.env.PORT || 9999;
